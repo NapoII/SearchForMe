@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 5rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        margin-right: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 300px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>I'll quicklysssssss look it up for you, you lazy bastard.</p>
+      <p>The requested URL was not found on this server.</p>
+      <form>
+        <input type="text" id="search-input" placeholder="Enter URL"/>
+        <button type="submit" id="search-button">Search</button>
+      </form>
+    </div>
+    <script>
+        const searchInput = document.querySelector("#search-input");
+        const searchButton = document.querySelector("#search-button");
+      
+        // Get the URL parameter from the page
+        const url = window.location.pathname.split("/").pop();
+      
+        // Set the input value to the URL parameter
+        // searchInput.value = decodeURIComponent(url);
+      
+        // Animate the input value with a delay between each character
+        let i = 0;
+        const intervalId = setInterval(() => {
+          if (i >= url.length) {
+            clearInterval(intervalId);
+            setTimeout(() => {
+              searchButton.click(); // Click the search button after 1 second delay
+            }, 1000);
+          } else {
+            searchInput.value += url.charAt(i);
+            i++;
+          }
+        }, 50);
+      
+        // Submit the search form when the button is clicked
+        searchButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          const query = encodeURIComponent(searchInput.value);
+          window.location.href = `https://www.google.com/search?q=${query}`;
+        });
+      </script>
+      
+  </body>
+</html>
