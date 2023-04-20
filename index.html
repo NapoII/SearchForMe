@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website Search</title>
+    <style>
+      #search-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #search-form input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 50%;
+        margin-bottom: 10px;
+      }
+      #search-form button {
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="search-form">
+      <h1>Website Search</h1>
+      <form>
+        <input type="text" id="search-input" placeholder="Enter URL"/>
+        <button type="submit" id="search-button">Search</button>
+      </form>
+    </div>
+    <script>
+      const searchForm = document.querySelector("#search-form");
+      const searchInput = document.querySelector("#search-input");
+      const searchButton = document.querySelector("#search-button");
+
+      // Get the URL parameter from the page
+      const url = window.location.pathname.split("/").pop();
+
+      // Set the input value to the URL parameter
+      searchInput.value = decodeURIComponent(url);
+
+      // Submit the search form when the button is clicked
+      searchButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        const query = encodeURIComponent(searchInput.value);
+        window.location.href = `https://www.google.com/search?q=${query}`;
+      });
+    </script>
+  </body>
+</html>
