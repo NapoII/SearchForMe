@@ -16,7 +16,6 @@ The website I have developed is aimed at people who like to avoid work and prefe
 ## 💻 Install <a name = "usage"></a>
 ```cmd
 git clone https://github.com/NapoII/LearnToGoogle
-pip install -r requirements.txt
 ```
 ## 💭 How it works <a name = "Use"></a>
 
