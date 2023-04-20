@@ -1,53 +1,99 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Website Search</title>
+    <title>Google</title>
     <style>
-      #search-form {
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         height: 100vh;
       }
-      #search-form input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-        width: 50%;
-        margin-bottom: 10px;
+
+      img {
+        display: block;
+        margin: 0 auto;
       }
-      #search-form button {
+
+      h1 {
+        font-size: 5rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      input[type="text"] {
         padding: 10px;
+        margin-right: 10px;
         font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 300px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
       }
     </style>
+	<style>
+		.image-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		}
+	
+		.image-container img {
+		  margin: 1px;
+		}
+	  </style>
   </head>
   <body>
-    <div id="search-form">
-      <h1>Website Search</h1>
-      <form>
-        <input type="text" id="search-input" placeholder="Enter URL"/>
-        <button type="submit" id="search-button">Search</button>
+		
+    <div class="container">
+		<p>Create a link for</p>
+      <img src="lerantogoogle.gif" alt="404 Not Found" style="width: 40%; height: auto;">
+      <p>to troll your friends</p>
+	  <form>
+        <input type="text" id="search-field" placeholder="Suche bei SearchForMe">
+        <button type="button" onclick="search()">Create link</button>
       </form>
     </div>
+	
+	<hr>
+	<div class="image-container">
+		<a href="https://github.com/NapoII/SearchForMe/"><img src="https://img.shields.io/website?down_color=red&down_message=offline&label=SearchForMe&up_color=greenb&up_message=Online&url=https%3A%2F%2Fnapoii.github.io%2FSearchForMe%2F" alt="website"></a>
+		<a href="https://github.com/NapoII/SearchForMe/blob/main/LICENSE"><img src="https://img.shields.io/github/license/NapoII/SearchForMe" alt="github/license"></a>
+		<a href="https://img.shields.io/github/issues-raw/NapoII/SearchForMe"><img src="https://img.shields.io/github/issues/NapoII/SearchForMe?style=plastic" alt="github/issues_open"></a>
+		<a href="https://github.com/NapoII/SearchForMe/stargazers"><img src="https://img.shields.io/github/stars/NapoII/SearchForMe?style=social" alt="github/stars"></a>
+		<a href="https://discord.gg/knTKtKVfnr"><img src="https://img.shields.io/discord/190307701169979393" alt="discord"></a>
+	  </div>
+    <!-- JavaScript code that performs the search process -->
     <script>
-      const searchForm = document.querySelector("#search-form");
-      const searchInput = document.querySelector("#search-input");
-      const searchButton = document.querySelector("#search-button");
-
-      // Get the URL parameter from the page
-      const url = window.location.pathname.split("/").pop();
-
-      // Set the input value to the URL parameter
-      searchInput.value = decodeURIComponent(url);
-
-      // Submit the search form when the button is clicked
-      searchButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const query = encodeURIComponent(searchInput.value);
-        window.location.href = `https://www.google.com/search?q=${query}`;
-      });
+      function search() {
+        var item = document.getElementById("search-field").value;
+        item = item.replace(/ /g, "%20");
+        item = "https://napoii.github.io/SearchForMe/" + item;
+        navigator.clipboard.writeText(item);
+        alert("The link has been added to your clipboard.\nYou can now share it with your friends: \n\n" + item );
+      }
     </script>
   </body>
 </html>
