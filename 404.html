@@ -63,11 +63,11 @@
         const searchInput = document.querySelector("#search-input");
         const searchButton = document.querySelector("#search-button");
       
-        // Get the URL parameter from the page
-        const url = window.location.pathname.split("/").pop();
+        // Get the URL parameter from the page and format it
+        const url = decodeURIComponent(window.location.pathname.split("/").pop()).replace("%20", " ");
       
-        // Set the input value to the URL parameter
-        // searchInput.value = decodeURIComponent(url);
+        // Set the input value to the formatted URL parameter
+        searchInput.value = url;
       
         // Animate the input value with a delay between each character
         let i = 0;
@@ -90,6 +90,7 @@
           window.location.href = `https://www.google.com/search?q=${query}`;
         });
       </script>
+      
       
   </body>
 </html>
