@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>404 Not Found</title>
+    <title>learn to google</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
@@ -18,6 +18,11 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
       }
 
       h1 {
@@ -52,10 +57,9 @@
   </head>
   <body>
     <div class="container">
-      <p>I'll quicklysssssss look it up for you, you lazy bastard.</p>
-      <p>The requested URL was not found on this server.</p>
+        <img src="lerantogoogle.gif" alt="404 Not Found" style="width: 40%; height: auto;">
       <form>
-        <input type="text" id="search-input" placeholder="Enter URL"/>
+        <input type="text" id="search-input"/>
         <button type="submit" id="search-button">Search</button>
       </form>
     </div>
@@ -66,22 +70,21 @@
         // Get the URL parameter from the page and format it
         const url = decodeURIComponent(window.location.pathname.split("/").pop()).replace("%20", " ");
       
-        // Set the input value to the formatted URL parameter
-        searchInput.value = url;
-      
-        // Animate the input value with a delay between each character
-        let i = 0;
-        const intervalId = setInterval(() => {
-          if (i >= url.length) {
-            clearInterval(intervalId);
-            setTimeout(() => {
-              searchButton.click(); // Click the search button after 1 second delay
-            }, 1000);
-          } else {
-            searchInput.value += url.charAt(i);
-            i++;
-          }
-        }, 50);
+        setTimeout(() => {
+          // Animate the input value with a delay between each character
+          let i = 0;
+          const intervalId = setInterval(() => {
+            if (i >= url.length) {
+              clearInterval(intervalId);
+              setTimeout(() => {
+                searchButton.click(); // Click the search button after 1 second delay
+              }, 1500);
+            } else {
+              searchInput.value += url.charAt(i);
+              i++;
+            }
+          }, 50);
+        }, 2000);
       
         // Submit the search form when the button is clicked
         searchButton.addEventListener("click", (event) => {
@@ -90,6 +93,7 @@
           window.location.href = `https://www.google.com/search?q=${query}`;
         });
       </script>
+      
       
       
   </body>
