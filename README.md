@@ -9,13 +9,13 @@ The website I have developed is aimed at people who like to avoid work and prefe
 + [Install](#usage)
 + [How it works](#Use)
 + [Lizenz](#Lizenz)
+
 ## 🎥 Demo / Working <a name = "demo"></a>
-[![downloads/total](https://raw.githubusercontent.com/NapoII/LearnToGoogle/main/README_img\demo.gif)](https://napoii.github.io/LearnToGoogle/) 
+[![demo](https://raw.githubusercontent.com/NapoII/LearnToGoogle/main/README_img/demo.gif)](https://napoii.github.io/LearnToGoogle/) 
 
 ## 💻 Install <a name = "usage"></a>
 ```cmd
 git clone https://github.com/NapoII/LearnToGoogle
-pip install -r requirements.txt
 ```
 ## 💭 How it works <a name = "Use"></a>
 
